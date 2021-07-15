@@ -1,7 +1,7 @@
 # APP LISTA DE COMPRAS
 <h1 align="center">
   <br>
-  <img src="./demo/appListadeCompras.jpg" alt="Kelsen Lima" height="300" width="120">
+  <img src="./demo/appListadeCompras.jpg" alt="Kelsen Lima" height="300" width="190">
 </h1>
 
 ## :blush: **Descrição**
