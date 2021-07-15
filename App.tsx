@@ -1,24 +1,36 @@
-import 'react-native-gesture-handler';
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-
-import useCachedResources from './hooks/useCachedResources';
-import useColorScheme from './hooks/useColorScheme';
-import Navigation from './navigation';
-
-export default function App() {
-  const isLoadingComplete = useCachedResources();
-  const colorScheme = useColorScheme();
-
-  if (!isLoadingComplete) {
-    return null;
-  } else {
-    return (
-      <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
-        <StatusBar />
-      </SafeAreaProvider>
-    );
-  }
-}
+import React, {useState} from 'react';
+import {SafeAreaView, StyleSheet, View, FlatList} from 'react-native';
+import Header from './src/components/Header';
+import AddItem, {IItem} from './src/components/AddItem';
+import Item from './src/components/Item';
+const App = () => {
+  const [shoppingList, setShoppingList] = useState<IItem[]>([]);
+  return (
+    <SafeAreaView style={styles.container}>
+      <Header title="Lista de Compras" />
+      <View style={styles.contentWrapper}>
+        <AddItem
+          setShoppingList={setShoppingList}
+          shoppingList={shoppingList}
+        />
+        <FlatList
+          data={shoppingList}
+          keyExtractor={(item, index) => `${item.item}-${index}`}
+          renderItem={({item}) => (
+            <Item item={item.item} quantity={item.quantity} />
+          )}
+        />
+      </View>
+    </SafeAreaView>
+  );
+};
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#e8e7e3',
+  },
+  contentWrapper: {
+    padding: 20,
+  },
+});
+export default App;

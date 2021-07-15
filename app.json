@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "AppListadeCompras",
+    "name": "Lista de Compras",
     "slug": "AppListadeCompras",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -10,7 +10,7 @@
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#0D9F5A"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -22,6 +22,7 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.flameusit.listadecompras",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
